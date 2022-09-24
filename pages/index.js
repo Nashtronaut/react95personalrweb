@@ -7,14 +7,14 @@ export default function Home() {
   return (
     <div className={styles.container}>
       <Head>
-        <title>squidtechnica personel viewer - Nash Boisvert</title>
+        <title>squidtechnica - Nash Boisvert</title>
         <meta name="Nash Boisvert's personal website and information" content="Information about Nash Boisvert including contact, passed projects, and resume. Built with Next.JS and react95." />
         <link rel="icon" href="/favicon.ico" />
         {/* CHANGE ICON FOR TAB */}
       </Head>
 
       <main className={styles.main}>
-        <App></App>
+        <App/>
       </main>
     </div>
   )

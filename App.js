@@ -1,12 +1,11 @@
 import React from 'react';
 import { createGlobalStyle, ThemeProvider } from 'styled-components';
-
 import { styleReset, List, ListItem, Divider } from 'react95';
-// pick a theme of your choice
 import original from 'react95/dist/themes/original';
-// original Windows95 font (optionally)
 import ms_sans_serif from 'react95/dist/fonts/ms_sans_serif.woff2';
 import ms_sans_serif_bold from 'react95/dist/fonts/ms_sans_serif_bold.woff2';
+import MainWindow from './components/Window';
+
 
 const GlobalStyles = createGlobalStyle`
   ${styleReset}
@@ -31,12 +30,7 @@ const App = () => (
   <div>
     <GlobalStyles />
     <ThemeProvider theme={original}>
-      <List>
-        <ListItem>🎤 Sing</ListItem>
-        <ListItem>💃🏻 Dance</ListItem>
-        <Divider />
-        <ListItem disabled>😴 Sleep</ListItem>
-      </List>
+        <MainWindow /> 
     </ThemeProvider>
   </div>
 );
