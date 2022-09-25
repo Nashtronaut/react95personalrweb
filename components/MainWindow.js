@@ -14,6 +14,7 @@ import {
 } from 'react95';
 import About from './About';
 import Skills from './Skills';
+import Projects from './Projects';
 import Contact from './Contact';
 import Resume from './Resume';
 import Footer from './Footer';
@@ -97,7 +98,7 @@ const MainWindow = () => {
                     <Skills />
                   )}
                   {activeTab === 2 && (
-                    <p>not implemented</p>
+                    <Projects /> 
                   )}
                   {activeTab === 3 && (
                     <Resume />
