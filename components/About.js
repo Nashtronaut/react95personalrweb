@@ -5,7 +5,7 @@ import { Fieldset } from 'react95';
 const About = () => {
     return(
         <div>
-            <TabContentHeader header="Nash Boisvert!" initials="NB" />
+            <TabContentHeader header="Nash Boisvert!" />
             <Fieldset style={{fontWeight: 'bold', padding: '0.5rem 0.8rem', margin: '0.8rem 0'}} label="Location">
                 Edmonton, Alberta, Canada
             </Fieldset>
