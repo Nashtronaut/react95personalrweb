@@ -10,7 +10,8 @@ import {
     Panel,
     Tabs,
     Tab,
-    TabBody
+    TabBody,
+    Hourglass
 } from 'react95';
 import About from './About';
 import Skills from './Skills';
@@ -21,6 +22,9 @@ import Footer from './Footer';
 
 const Wrapper = styled.div`
   background: ${({ theme }) => theme.desktopBackground};
+  width: 100vw;
+  display: flex;
+  justify-content: center;
   .window-header {
     display: flex;
     align-items: center;
@@ -55,22 +59,43 @@ const Wrapper = styled.div`
     }
   }
   .window {
-    width: calc(100vw - 0.8rem);
-    height: auto; // SUBTRACT FOR MAIN PADDING IN Home.module.css // SUBTRACT FOR MAIN
+    width: 99%;
+    max-width: 60rem;
+    height: 100%; // SUBTRACT FOR MAIN PADDING IN Home.module.css // SUBTRACT FOR MAIN
     // WINDOW SIZING, NEEDS ADJUSTING FOR RESPONSIVENESS   
   }
 `;
 
+const spinner = {
+  position: 'absolute',
+  zIndex: 1,
+  bottom: 0,
+  top: 0,
+  left: 0,
+  right: 0,
+  display: 'flex',
+  justifyContent: 'center',
+  alignItems: 'center'
+};
+
 const tabStyle = {
   width: '20%',
-  maxWidth: '7.5rem'
+  maxWidth: '7.5rem',
+  fontSize: '0.75rem',
+  fontWeight: 'bold',
 };
 
 const MainWindow = () => {
   
   const [activeTab, setActiveTab] = useState(0);
-  const handleChange = (e, value) => {setActiveTab(value)};
 
+  const handleChange = (e, value) => {
+    setActiveTab(5);
+    setTimeout(() => {
+      setActiveTab(value);
+    }, Math.random() * 500);
+  };
+  
     return (
       <Wrapper>
         <Window className='window'>
@@ -91,22 +116,28 @@ const MainWindow = () => {
                 </Tabs>
 
                 <TabBody style={{margin: '0 0.5rem', minHeight: '42rem', position: 'relative'}}>
-                  {activeTab === 0 && (
-                    <About />
-                  )}
-                  {activeTab === 1 && (
-                    <Skills />
-                  )}
-                  {activeTab === 2 && (
-                    <Projects /> 
-                  )}
-                  {activeTab === 3 && (
-                    <Resume />
-                  )}
-                  {activeTab === 4 && (
-                    <Contact />
-                  )}
-                  
+                    {activeTab === 0 && (
+                      <About />
+                    )}
+                    {activeTab === 1 && (
+                      <Skills />
+                    )}
+                    {activeTab === 2 && (
+                      <Projects /> 
+                    )}
+                    {activeTab === 3 && (
+                      <Resume />
+                    )}
+                    {activeTab === 4 && (
+                      <Contact />
+                    )}
+                    {activeTab === 5 && (
+                      <div>
+                        <div style={spinner}><Hourglass size={50}/></div>
+                      </div>
+                    )}
+                    
+                    
                 </TabBody>
             </WindowContent>
             <Footer />
