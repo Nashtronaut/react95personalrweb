@@ -65,8 +65,7 @@ const Wrapper = styled.div`
   }
   .window {
     width: 85%;
-    height: 65%;
-    max-width: 30rem; // SUBTRACT FOR MAIN PADDING IN Home.module.css // SUBTRACT FOR MAIN
+    height: 65%; // SUBTRACT FOR MAIN PADDING IN Home.module.css // SUBTRACT FOR MAIN
     // WINDOW SIZING, NEEDS ADJUSTING FOR RESPONSIVENESS   
   }
 `;
@@ -97,7 +96,7 @@ const MyDog = ({hideDog}) => {
 
     return (
       <Wrapper>
-        <Window className='window'>
+        <Window style={{maxWidth: '30rem'}} className='window'>
             <WindowHeader className='window-header'>
                 <span>grizzlee_adams_viewer.exe </span>
                 <Button onClick={hideDog}>
