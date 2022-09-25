@@ -1,6 +1,5 @@
+import { useState } from "react";
 import TabContentHeader from "./TabContentHeader";
-import styled from "styled-components";
-import media from 'styled-media-query'
 import {
     Fieldset,
     Anchor,
@@ -11,9 +10,13 @@ import {
 
 const Contact = () => {
 
+    const [contactSent, setContactSent] = useState('false');
+
     const handleSend = (e) => {
         e.preventDefault();
+        setContactSent('true');
     };
+
     return(
         <div>
             <TabContentHeader header="Give me a ring!" initials="C"/>
@@ -27,20 +30,18 @@ const Contact = () => {
                 </Fieldset>
             </div>
             <Divider style={{margin: "1rem 0"}}/>
-            <form>
+            <form onSubmit={handleSend} className="contactForm" display={!contactSent ? "block" : "none"} type="post" action="https://public.herotofu.com/v1/f7460290-3cae-11ed-a10f-d1a38bd15d37">
                 <div style={{display: 'flex', flexDirection: 'column', gap: '0.5rem'}}>
-                    <TextField type='email' placeholder="Your email address..."/>
-                    <TextField placeholder="Subject..."/>
-                    <TextField placeholder="Message..." multiline rows={10}/>
+                    <TextField name="Email" id="email" type='email' placeholder="Your email address..." required />
+                    <TextField name="Name" id="name" type="text" placeholder="Your Name..." required />
+                    <TextField name="Message" id="message" type="text" placeholder="Message..." multiline rows={10} required />
                 </div>
                 <div style={{display: 'flex', gap: '0.3rem', justifyContent: 'end', marginTop: '3rem'}}>
-                    <Button onClick={handleSend}>Send!</Button>
+                    <Button type='submit'>Send!</Button>
                     <Button type='reset'>Clear</Button>
                 </div>
             </form>
-            
-            
-
+            <div display={contactSent ? "block" : "none"}></div>
         </div>
     );
 };

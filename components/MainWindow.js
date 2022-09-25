@@ -1,24 +1,21 @@
 import styled from 'styled-components'
-import media from 'styled-media-query'
 import { useState } from 'react';
-import {
-    Window,
-    WindowHeader,
-    WindowContent,
-    Button,
-    Toolbar,
-    Panel,
-    Tabs,
-    Tab,
-    TabBody,
-    Hourglass
-} from 'react95';
 import About from './About';
 import Skills from './Skills';
 import Projects from './Projects';
 import Contact from './Contact';
 import Resume from './Resume';
 import Footer from './Footer';
+import {
+  Window,
+  WindowHeader,
+  WindowContent,
+  Button,
+  Tabs,
+  Tab,
+  TabBody,
+  Hourglass
+} from 'react95';
 
 const Wrapper = styled.div`
   background: ${({ theme }) => theme.desktopBackground};
@@ -95,7 +92,7 @@ const MainWindow = () => {
       setActiveTab(value);
     }, Math.random() * 500);
   };
-  
+
     return (
       <Wrapper>
         <Window className='window'>
