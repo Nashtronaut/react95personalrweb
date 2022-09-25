@@ -5,6 +5,7 @@ import Skills from './Skills';
 import Projects from './Projects';
 import Contact from './Contact';
 import Resume from './Resume';
+import MyDog from './MyDog';
 import Footer from './Footer';
 import {
   Window,
@@ -93,6 +94,16 @@ const MainWindow = () => {
     }, Math.random() * 500);
   };
 
+  const [showDog, setShowDog] = useState(false);
+
+  const handleShowDog = () => {
+    return setShowDog(true);
+  };
+
+  const handleHideDog = () => {
+    return setShowDog(false);
+  };
+
     return (
       <Wrapper>
         <Window className='window'>
@@ -133,12 +144,13 @@ const MainWindow = () => {
                         <div style={spinner}><Hourglass size={50}/></div>
                       </div>
                     )}
-                    
-                    
                 </TabBody>
             </WindowContent>
-            <Footer />
+            <Footer showDog={handleShowDog} />
         </Window>
+        {showDog && (
+          <MyDog hideDog={handleHideDog} />
+        )}
     </Wrapper>
     );
   }

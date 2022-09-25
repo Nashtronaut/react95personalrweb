@@ -1,3 +1,4 @@
+import TabContentHeader from './TabContentHeader';
 import {
     List,
     ListItem,
@@ -8,6 +9,7 @@ import {
 const Projects = () => {
     return(
         <div>
+            <TabContentHeader header="Some of my stuff!" /> 
             <Fieldset style={{fontWeight: 'bold', marginBottom: '1rem'}} label="Disclaimer">
                 Unfortunately, many of my recent project details and source code is locked behind NDA&apos;s. Please inquire for more details about the things I&apos;ve done!
             </Fieldset>
