@@ -5,7 +5,7 @@ import { Fieldset } from 'react95';
 const About = () => {
     return(
         <div>
-            <TabContentHeader header="NASH WILLIAM BOISVERT" initials="NB" />
+            <TabContentHeader header="Nash Boisvert!" initials="NB" />
             <Fieldset style={{fontWeight: 'bold', padding: '0.5rem 0.8rem', margin: '0.8rem 0'}} label="Location">
                 Edmonton, Alberta, Canada
             </Fieldset>
@@ -21,7 +21,7 @@ const About = () => {
                     <li style={{margin: '0.5rem 0'}}>- Ran student tutoring Discord</li>
                     <li style={{margin: '0.5rem 0'}}>- Linux lover</li>
                     <li style={{margin: '0.5rem 0'}}>- Dog lover</li>
-                    <li style={{margin: '0.5rem 0'}}>- Born in 1996</li>
+                    <li style={{margin: '0.5rem 0'}}>- V 1.0 released in 1996</li>
                     <li style={{margin: '0.5rem 0'}}>- Tinkering since 2004</li>
                     <li style={{margin: '0.5rem 0'}}>- Poor since 2004</li>
                     <li style={{margin: '0.5rem 0'}}>- Open-source contributor</li>

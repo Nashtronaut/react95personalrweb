@@ -97,21 +97,18 @@ const MainWindow = () => {
   const [showDog, setShowDog] = useState(false);
 
   const handleShowDog = () => {
-    return setShowDog(true);
+    setShowDog(true);
   };
 
   const handleHideDog = () => {
-    return setShowDog(false);
+    setShowDog(false);
   };
 
     return (
       <Wrapper>
         <Window className='window'>
-            <WindowHeader className='window-header'>
+            <WindowHeader style={{padding: '0 0.8rem'}} className='window-header'>
                 <span>nashtronaut_info.exe </span>
-                <Button>
-                    <span className='close-icon' />
-                </Button>
             </WindowHeader>
 
             <WindowContent style={{padding: 0}}>

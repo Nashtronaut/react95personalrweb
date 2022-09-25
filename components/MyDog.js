@@ -1,5 +1,10 @@
 import styled from 'styled-components'
 import { useState } from 'react';
+import Image from 'next/future/image';
+import cute from '../public/img/cute.png';
+import goofy from '../public/img/goofy.png';
+import handsome from '../public/img/handsome.png';
+import sleepy from '../public/img/sleepy.png';
 import {
   Window,
   WindowHeader,
@@ -8,10 +13,11 @@ import {
   Toolbar,
   Hourglass,
   List,
-  Image,
   ListItem,
-  Divider
+  Divider,
+  Tooltip
 } from 'react95';
+import { CLIENT_STATIC_FILES_RUNTIME_POLYFILLS } from 'next/dist/shared/lib/constants';
 
 const Wrapper = styled.div`
   position: absolute;
@@ -59,8 +65,8 @@ const Wrapper = styled.div`
   }
   .window {
     width: 85%;
-    height: 60%;
-    max-width: 60rem; // SUBTRACT FOR MAIN PADDING IN Home.module.css // SUBTRACT FOR MAIN
+    height: 65%;
+    max-width: 30rem; // SUBTRACT FOR MAIN PADDING IN Home.module.css // SUBTRACT FOR MAIN
     // WINDOW SIZING, NEEDS ADJUSTING FOR RESPONSIVENESS   
   }
 `;
@@ -123,21 +129,33 @@ const MyDog = ({hideDog}) => {
                 </List>
             </Toolbar>
 
-            <WindowContent style={{display: 'flex', justifyContent: 'center', alignContent: 'center', padding: 0}}>
+            <WindowContent style={{overflow: 'hidden', display: 'flex', justifyContent: 'center', alignContent: 'center', padding: 0, height: '100%', width: '100%'}}>
                     {activePhoto === 0 && (
-                      <p>cute</p>
+                        <div style={{textAlign: 'center'}}>    
+                            <Image style={{height: '75%', width: 'auto'}} src={cute} alt="Cute dog"/>
+                            <p style={{margin: '0.2rem'}}>The cutest dog you ever did see</p>
+                        </div>
                     )}
                     {activePhoto === 1 && (
-                      <p>handsome</p>
+                        <div style={{textAlign: 'center'}}>
+                            <Image style={{height: '75%', width: 'auto'}} src={handsome} alt="Handsome dog"/>
+                            <p style={{margin: '0.2rem'}}>The handomest dog you ever did see</p>
+                        </div>
                     )}
                     {activePhoto === 2 && (
-                      <p>goofy</p>
+                        <div style={{textAlign: 'center'}}>
+                            <Image style={{height: '75%', width: 'auto'}} src={sleepy} alt="Sleepy dog"/>
+                            <p style={{margin: '0.2rem'}}>The sleepiest dog you ever did see</p>
+                        </div>
                     )}
                     {activePhoto === 3 && (
-                      <p>sleepy</p>
+                        <div style={{textAlign: 'center'}}>
+                            <Image style={{height: '75%', width: 'auto'}} src={goofy} alt="Goofy dog"/>
+                            <p style={{margin: '0.2rem'}}>The goofiest dog you ever did see</p>
+                        </div>
                     )}
                     {activePhoto === 4 && (
-                      <p>please see all photos</p>
+                      <p style={{fontSize: '2rem'}}>please see all photos</p>
                     )}
                     {activePhoto === 5 && (
                       <div>

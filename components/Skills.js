@@ -168,7 +168,7 @@ const Skills = () => {
 
     return(
         <div>
-            <TabContentHeader header="A growing collection of aquired skills..." initials="SK" />
+            <TabContentHeader header="A growing collection!" initials="SK" />
             <div style={{display: 'flex', justifyContent: 'space-between'}}>
                 <Button disabled={expanded.length === allIds.length} onClick={handleExpand} style={{marginBottom: '0.8rem'}}>Expand All</Button>
                 <Button disabled={expanded.length === 0} onClick={handleCollapse} style={{marginBottom: '0.8rem'}}>Collapse All</Button>
