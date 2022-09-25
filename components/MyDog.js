@@ -96,7 +96,7 @@ const MyDog = ({hideDog}) => {
 
     return (
       <Wrapper>
-        <Window style={{maxWidth: '25rem'}} className='window'>
+        <Window style={{maxWidth: '35rem', maxHeight: '40rem'}} className='window'>
             <WindowHeader className='window-header'>
                 <span>grizzlee_adams_viewer.exe </span>
                 <Button onClick={hideDog}>
