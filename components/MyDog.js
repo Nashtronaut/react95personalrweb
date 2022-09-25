@@ -131,7 +131,7 @@ const MyDog = ({hideDog}) => {
 
             <WindowContent style={{overflow: 'hidden', display: 'flex', justifyContent: 'center', alignContent: 'center', padding: 0, height: '100%', width: '100%'}}>
                     {activePhoto === 0 && (
-                        <div style={{textAlign: 'center'}}>    
+                        <div style={{textAlign: 'center'}}>
                             <Image style={{height: '75%', width: 'auto'}} src={cute} alt="Cute dog"/>
                             <p style={{margin: '0.2rem'}}>The cutest dog you ever did see</p>
                         </div>
