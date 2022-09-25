@@ -170,8 +170,8 @@ const Skills = () => {
         <div>
             <TabContentHeader header="A growing collection of aquired skills..." initials="SK" />
             <div style={{display: 'flex', justifyContent: 'space-between'}}>
-                <Button onClick={handleExpand} style={{marginBottom: '0.8rem'}}>Expand All</Button>
-                <Button onClick={handleCollapse} style={{marginBottom: '0.8rem'}}>Collapse All</Button>
+                <Button disabled={expanded.length === allIds.length} onClick={handleExpand} style={{marginBottom: '0.8rem'}}>Expand All</Button>
+                <Button disabled={expanded.length === 0} onClick={handleCollapse} style={{marginBottom: '0.8rem'}}>Collapse All</Button>
             </div>
             
             <Fieldset label="Catalogue" style={{background: 'white', fontWeight: 'bold'}}>
