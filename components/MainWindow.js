@@ -11,7 +11,6 @@ import {
   Window,
   WindowHeader,
   WindowContent,
-  Button,
   Tabs,
   Tab,
   TabBody,

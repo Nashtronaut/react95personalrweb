@@ -17,19 +17,32 @@ const Contact = () => {
     const [contactSent, setContactSent] = useState(false);
     const [feedback, setFeedBack] = useState('');
     const [loadingBar, setLoadingBar] = useState(true);
+    const [resetButton, setResetButton] = useState('');
+
+    const handleResetMessage = () => {
+        setContactSent(false);
+        setFeedBack('');
+        setLoadingBar(true);
+    };
 
     const handleSubmitListener = () => {
         const form = document.querySelector('.contact-form');
+
         setFeedBack('Sending...');
         handleSubmit(form).then((response) => {
             setContactSent(true);
-            if (response) 
+            if (response)
             {
                     setFeedBack('Message Sent! Thanks!');
                     setLoadingBar(false);
+                    setResetButton('Send another!');
+                    form.reset();
                     return
             } else {
-                setFeedBack('Sorry there was an error :( Please try again.');
+                setFeedBack('Fill out the fields!');
+                setLoadingBar(false);
+                setResetButton('Try again!');
+                form.reset();
                 return
             }
         })
@@ -57,7 +70,11 @@ const Contact = () => {
                 </div>
                 {contactSent && (
                     <div style={{marginTop: '2rem'}}>
-                        <p style={{ textAlign: 'center', margin: '0.5rem 0', fontWeight: 'bold' }}>{feedback}</p>
+                        <div style={{display: 'flex', justifyContent: 'space-between', alignContent: 'center'}}>
+                            <p style={{ textAlign: 'center', margin: '0.5rem 0', fontWeight: 'bold' }}>{feedback}</p>
+                            <Button onClick={handleResetMessage} size='sm'>{resetButton}</Button>
+                        </div>
+                        
                         {loadingBar && (
                             <LoadingIndicator isLoading={loadingBar} />
                         )}

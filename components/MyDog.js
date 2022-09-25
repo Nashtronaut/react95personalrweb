@@ -14,10 +14,8 @@ import {
   Hourglass,
   List,
   ListItem,
-  Divider,
-  Tooltip
+  Divider
 } from 'react95';
-import { CLIENT_STATIC_FILES_RUNTIME_POLYFILLS } from 'next/dist/shared/lib/constants';
 
 const Wrapper = styled.div`
   position: absolute;
