@@ -15,7 +15,7 @@ const About = () => {
             <Fieldset style={{fontWeight: 'bold', background: 'white', padding: '1rem 0.8rem 0.8rem', margin: '0.8rem 0'}} label="About">
                 <ul>
                     <li style={{margin: '0.5rem 0'}}>- 4.0 GPA</li>
-                    <li style={{margin: '0.5rem 0'}}>- Dean's Honour Roll</li>
+                    <li style={{margin: '0.5rem 0'}}>- Dean&apos;s Honour Roll</li>
                     <li style={{margin: '0.5rem 0'}}>- 8 month COOP (CGI Group)</li>
                     <li style={{margin: '0.5rem 0'}}>- Full stack role</li>
                     <li style={{margin: '0.5rem 0'}}>- Ran student tutoring Discord</li>
