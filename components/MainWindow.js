@@ -1,6 +1,6 @@
-import styled from 'styled-components'
 import { useState } from 'react';
-import WindowWrapper from './WindowWrapper';
+import spinner from './helpers/spinnerStyles'
+import WindowWrapper from './helpers/wrappers/WindowWrapper';
 import About from './About';
 import Skills from './Skills';
 import Projects from './Projects';
@@ -17,18 +17,6 @@ import {
   TabBody,
   Hourglass
 } from 'react95';
-
-const spinner = {
-  position: 'absolute',
-  zIndex: 1,
-  bottom: 0,
-  top: 0,
-  left: 0,
-  right: 0,
-  display: 'flex',
-  justifyContent: 'center',
-  alignItems: 'center'
-};
 
 const tabStyle = {
   width: '20%',

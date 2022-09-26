@@ -1,6 +1,6 @@
 import { useState } from "react";
 import TabContentHeader from "./TabContentHeader";
-import handleSubmit from "./api/handleSubmit";
+import handleSubmit from "./helpers/api/handleSubmit"
 import {
     Fieldset,
     Anchor,
