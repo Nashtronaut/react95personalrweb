@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
-import getWeather from './helpers/api/getWeather';
+import getWeather from './helpers/api/getCurrentWeather';
+import getForecast from './helpers/api/getForecast';
 import Image from 'next/future/image';
 import cloud from '../public/img/weathericons/cloudy.png';
 import thunderstorm from '../public/img/weathericons/storm.png';
@@ -38,19 +39,25 @@ const icons = [
 
 const WeatherWindow = (props) => {
     const handleWeatherClose = props.handleWeatherClose; 
-    const [weatherData, setWeatherData] = useState(null);
+    const [currentWeatherData, setCurrentWeatherData] = useState(null);
+    const [forecastData, setForecastData] = useState(null);
     const [icon, setIcon] = useState(null);
 
     useEffect(() => {
        const weatherGetter = async () => {
             let data = await getWeather();
-            setWeatherData(data);
+            setCurrentWeatherData(data);
+
+            let forecast = await getForecast();
+            setForecastData(forecast);
+
             let icon = await icons.find(x => x.id == data.weather[0].main).icon;
             setIcon(icon);
             return 
        };
        weatherGetter();
     }, [])
+
 
     return (
         <div style={{display: 'flex', justifyContent: 'center'}}>
@@ -62,18 +69,24 @@ const WeatherWindow = (props) => {
                     </Button>
                 </WindowHeader>
                 <WindowContent>
-                    {weatherData && icon && (
+                    {currentWeatherData && icon && (
+                        <div style={{display: 'flex', flexDirection: 'column', alignContent: 'center' }}>
                             <div style={{display: 'flex', gap: '1.5rem', justifyContent: 'space-between', alignItems: 'center', padding: '0.2rem'}}>
                                 <Image src={icon} height={100}/>
                                 <div style={{display: 'flex', flexDirection: 'column', gap: '0.3rem', fontSize: '0.85rem', textAlign: 'right'}}>
                                     <p style={{textDecoration: 'underline'}}>Edmonton, Alberta, Canada</p>
-                                    <p>{Math.round(weatherData.main.temp)} &#176; C</p>
-                                    <p>feels like {Math.round(weatherData.main.feels_like)} &#176; C</p>
-                                    <p>{weatherData.weather[0].description}</p>
-                                    <p>{weatherData.wind.speed} km/h wind</p>
-                                    <p>{weatherData.main.humidity} % humidity</p>
+                                    <p>{Math.round(currentWeatherData.main.temp)} &#176; C</p>
+                                    <p>feels like {Math.round(currentWeatherData.main.feels_like)} &#176; C</p>
+                                    <p>{currentWeatherData.weather[0].description}</p>
+                                    <p>{currentWeatherData.wind.gust} km/h gusts</p>
+                                    <p>{currentWeatherData.main.humidity} % humidity</p>
                                 </div>
                             </div>
+                            <div> 
+                                <p></p>
+                            </div>
+                        </div>
+                            
                     )}
                 </WindowContent>
             </Window>
