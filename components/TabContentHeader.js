@@ -15,7 +15,7 @@ const TabContentHeader = (props) => {
         <div>
             <div style={{display: 'flex', alignItems: 'center'}}>
                 <Tooltip text='me.jpg' enterDelay={200} leaveDelay={500}>
-                    <Avatar size={90}><Image src={avatar} height={100} alt="me" /></Avatar>
+                    <Avatar size={90}><Image src={avatar} height={100} width={100} alt="me" /></Avatar>
                 </Tooltip>
                 <Divider style={{margin: '0 1rem'}} orientation="vertical" size={50} />
                 <p style={{fontWeight: 'bold'}}>{header}</p>

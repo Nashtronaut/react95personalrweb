@@ -1,5 +1,4 @@
 /** @type {import('next').NextConfig} */
-const withImages = require('next-images');
 const withFonts = require('next-fonts');
 const withTM = require('next-transpile-modules')([
   '@react95/core',
@@ -8,8 +7,7 @@ const withTM = require('next-transpile-modules')([
 
 const nextConfig = {
   reactStrictMode: true,
-  swcMinify: true,
-  disableStaticImages: true,
+  swcMinify: true
 };
 
-module.exports = withTM(withFonts(withImages(nextConfig)));
+module.exports = withTM(withFonts(nextConfig));

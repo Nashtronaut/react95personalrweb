@@ -72,7 +72,7 @@ const WeatherWindow = (props) => {
                     {currentWeatherData && icon && (
                         <div style={{display: 'flex', flexDirection: 'column', alignContent: 'center' }}>
                             <div style={{display: 'flex', gap: '1.5rem', justifyContent: 'space-between', alignItems: 'center', padding: '0.2rem'}}>
-                                <Image src={icon} height={100}/>
+                                <Image src={icon} height={100} alt={currentWeatherData.main.description}/>
                                 <div style={{display: 'flex', flexDirection: 'column', gap: '0.3rem', fontSize: '0.85rem', textAlign: 'right'}}>
                                     <p style={{textDecoration: 'underline'}}>Edmonton, Alberta, Canada</p>
                                     <p>{Math.round(currentWeatherData.main.temp)} &#176; C</p>
