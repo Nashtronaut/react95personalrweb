@@ -1,7 +1,5 @@
-import styled from 'styled-components';
 import { useState, useEffect } from 'react';
 import getWeather from './helpers/api/getWeather';
-import PopupWrapper from './helpers/wrappers/PopupWrapper';
 import Image from 'next/future/image';
 import cloud from '../public/img/weathericons/cloudy.png';
 import thunderstorm from '../public/img/weathericons/storm.png';
@@ -12,18 +10,17 @@ import {
     Window,
     WindowHeader,
     WindowContent,
-    Button,
-    Cutout
+    Button
 } from 'react95';
 
 const icons = [
     {
         id: 'Thunderstorm',
-        icon: {thunderstorm}
+        icon: thunderstorm
     },
     {
         id: 'Clouds',
-        icon: {cloud}
+        icon: cloud
     },
     {
         id: 'Clear',
@@ -39,19 +36,20 @@ const icons = [
     }
 ];
 
-const getIcon = () => {
-    return icons
-};
-
 const WeatherWindow = (props) => {
     const handleWeatherClose = props.handleWeatherClose; 
     const [weatherData, setWeatherData] = useState(null);
     const [icon, setIcon] = useState(null);
 
     useEffect(() => {
-       getWeather().then((data) => {
-            setWeatherData((oldState) => ({...data}));  
-        })
+       const weatherGetter = async () => {
+            let data = await getWeather();
+            setWeatherData(data);
+            let icon = await icons.find(x => x.id == data.weather[0].main).icon;
+            setIcon(icon);
+            return 
+       };
+       weatherGetter();
     }, [])
 
     return (
@@ -64,18 +62,18 @@ const WeatherWindow = (props) => {
                     </Button>
                 </WindowHeader>
                 <WindowContent>
-                    {weatherData && (
-                        <div style={{display: 'flex', gap: '1.5rem', alignItems: 'center', padding: '0.2rem'}}>
-                            <Image src={thunderstorm} height={100}/>
-                            <div style={{display: 'flex', flexDirection: 'column', gap: '0.3rem', fontSize: '0.85rem'}}>
-                                <p style={{textDecoration: 'underline'}}>Edmonton, Alberta, Canada</p>
-                                <p>{Math.round(weatherData.main.temp)} &#176; C</p>
-                                <p>feels like {Math.round(weatherData.main.feels_like)} &#176; C</p>
-                                <p>{weatherData.weather[0].description}</p>
-                                <p>{weatherData.wind.speed} km/h wind</p>
-                                <p>{weatherData.main.humidity} % humidity</p>
+                    {weatherData && icon && (
+                            <div style={{display: 'flex', gap: '1.5rem', justifyContent: 'space-between', alignItems: 'center', padding: '0.2rem'}}>
+                                <Image src={icon} height={100}/>
+                                <div style={{display: 'flex', flexDirection: 'column', gap: '0.3rem', fontSize: '0.85rem', textAlign: 'right'}}>
+                                    <p style={{textDecoration: 'underline'}}>Edmonton, Alberta, Canada</p>
+                                    <p>{Math.round(weatherData.main.temp)} &#176; C</p>
+                                    <p>feels like {Math.round(weatherData.main.feels_like)} &#176; C</p>
+                                    <p>{weatherData.weather[0].description}</p>
+                                    <p>{weatherData.wind.speed} km/h wind</p>
+                                    <p>{weatherData.main.humidity} % humidity</p>
+                                </div>
                             </div>
-                        </div>
                     )}
                 </WindowContent>
             </Window>
