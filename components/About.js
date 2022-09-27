@@ -1,13 +1,23 @@
-
+import { useState } from 'react';
+import WeatherWindow from './WeatherWindow';
 import TabContentHeader from './TabContentHeader';
-import { Fieldset } from 'react95';
+import { Fieldset, Anchor } from 'react95';
 
 const About = () => {
+    const [showWeather, setShowWeather] = useState(false);
+
+    const handleShowWeather = () => {
+        setShowWeather(true);
+    }
+
     return(
         <div>
             <TabContentHeader header="Nash Boisvert!" />
             <Fieldset style={{fontWeight: 'bold', padding: '0.5rem 0.8rem', margin: '0.8rem 0'}} label="Location">
-                Edmonton, Alberta, Canada
+                Edmonton, Alberta, Canada - <Anchor onClick={handleShowWeather} style={{cursor: 'pointer'}}>[weather?]</Anchor>
+                {showWeather && (
+                <WeatherWindow handleWeatherClose={() => setShowWeather(false)} />
+            )}
             </Fieldset>
             <Fieldset style={{fontWeight: 'bold', padding: '0.5rem 0.8rem', margin: '0.8rem 0'}} label="Education">
                 NAIT - Computer Software Development
@@ -21,6 +31,7 @@ const About = () => {
                     <li style={{margin: '0.5rem 0'}}>- Ran student tutoring Discord</li>
                     <li style={{margin: '0.5rem 0'}}>- Linux lover</li>
                     <li style={{margin: '0.5rem 0'}}>- Dog lover</li>
+                    <li style={{margin: '0.5rem 0'}}>- Obsessive chess player</li>
                     <li style={{margin: '0.5rem 0'}}>- V 1.0 released in 1996</li>
                     <li style={{margin: '0.5rem 0'}}>- Tinkering since 2004</li>
                     <li style={{margin: '0.5rem 0'}}>- Poor since 2004</li>
