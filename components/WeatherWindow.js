@@ -72,7 +72,6 @@ const WeatherWindow = (props) => {
        weatherGetter();
     }, [])
 
-
     return (
         <div style={{display: 'flex', justifyContent: 'center'}}>
             <Window style={{ position: 'absolute', zIndex: 1, width: "45%", minWidth: "19rem" }}>
@@ -101,7 +100,7 @@ const WeatherWindow = (props) => {
                                 <div style={{display: 'flex', justifyContent: 'space-between', alignContent: 'center', gap: '1rem'}}>
                                     {forecastData.map((forecast, index) => {
                                         return (
-                                        <ForecastWrapper>
+                                        <ForecastWrapper key={index}>
                                             <p style={{textDecoration: 'underline'}}>{forecast.day}</p>
                                             <div style={{display: 'flex', justifyContent: 'center', margin: '0.5rem 0'}}>
                                                 <Image src={forecastIcons[index]} height={50} alt={forecast.description}/>
@@ -110,7 +109,6 @@ const WeatherWindow = (props) => {
                                                 <p>{forecast.temp}</p>
                                                 <p>{forecast.weather}</p>
                                             </div>
-                                            
                                         </ForecastWrapper>
                                         );
                                     })}
