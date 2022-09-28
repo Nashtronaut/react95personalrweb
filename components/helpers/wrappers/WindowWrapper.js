@@ -1,7 +1,6 @@
 import styled from "styled-components";
 
 const Wrapper = styled.div`
-  background: ${({ theme }) => theme.desktopBackground};
   width: 100vw;
   display: flex;
   justify-content: center;
