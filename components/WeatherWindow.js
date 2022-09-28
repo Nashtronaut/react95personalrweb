@@ -105,8 +105,8 @@ const WeatherWindow = (props) => {
                                             <div style={{display: 'flex', justifyContent: 'center', margin: '0.5rem 0'}}>
                                                 <Image src={forecastIcons[index]} height={50} alt={forecast.description}/>
                                             </div>
-                                            <div>
-                                                <p>{forecast.temp} &#176; C</p>
+                                            <div style={{lineHeight: '1.2'}}>
+                                                <p>{Math.round(forecast.temp)} &#176; C</p>
                                                 <p>{forecast.weather}</p>
                                             </div>
                                         </ForecastWrapper>
