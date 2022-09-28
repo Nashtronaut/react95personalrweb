@@ -106,7 +106,7 @@ const WeatherWindow = (props) => {
                                                 <Image src={forecastIcons[index]} height={50} alt={forecast.description}/>
                                             </div>
                                             <div>
-                                                <p>{forecast.temp}</p>
+                                                <p>{forecast.temp} &#176; C</p>
                                                 <p>{forecast.weather}</p>
                                             </div>
                                         </ForecastWrapper>
