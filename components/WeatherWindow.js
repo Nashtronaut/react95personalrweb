@@ -1,17 +1,19 @@
 import { useState, useEffect } from 'react';
+import ForecastWrapper from './helpers/wrappers/ForecastWrapper';
 import getWeather from './helpers/api/getCurrentWeather';
 import getForecast from './helpers/api/getForecast';
 import Image from 'next/future/image';
 import cloud from '../public/img/weathericons/cloudy.png';
 import thunderstorm from '../public/img/weathericons/storm.png';
-import clear from '../public/img/weathericons/sun.png';
+import sun from '../public/img/weathericons/sun.png';
 import snowflake from '../public/img/weathericons/snowflake.png';
 import rain from '../public/img/weathericons/rain.png';
 import {
     Window,
     WindowHeader,
     WindowContent,
-    Button
+    Button,
+    Fieldset
 } from 'react95';
 
 const icons = [
@@ -25,15 +27,15 @@ const icons = [
     },
     {
         id: 'Clear',
-        icon: {clear}
+        icon: sun
     },
     {
         id: 'Snow',
-        icon: {snowflake}
+        icon: snowflake
     },
     {
         id: 'Rain',
-        icon: {rain}
+        icon: rain
     }
 ];
 
@@ -41,17 +43,29 @@ const WeatherWindow = (props) => {
     const handleWeatherClose = props.handleWeatherClose; 
     const [currentWeatherData, setCurrentWeatherData] = useState(null);
     const [forecastData, setForecastData] = useState(null);
+    const [forecastIcons, setForecastIcons] = useState(null);
     const [icon, setIcon] = useState(null);
 
     useEffect(() => {
-       const weatherGetter = async () => {
-            let data = await getWeather();
+        const foreCastIconSetter = (forecasts) => {            
+            const iconsToSet = forecasts.map((forecast) => {
+                const icon = icons.find(x => x.id == forecast.main).icon;
+                return icon
+            })
+            console.log(iconsToSet);
+            setForecastIcons(iconsToSet);
+        };
+
+        const weatherGetter = async () => {
+            const data = await getWeather();
             setCurrentWeatherData(data);
 
-            let forecast = await getForecast();
-            setForecastData(forecast);
+            const forecasts = await getForecast();
+            setForecastData(forecasts);
 
-            let icon = await icons.find(x => x.id == data.weather[0].main).icon;
+            await foreCastIconSetter(forecasts);
+
+            const icon = await icons.find(x => x.id == data.weather[0].main).icon;
             setIcon(icon);
             return 
        };
@@ -61,7 +75,7 @@ const WeatherWindow = (props) => {
 
     return (
         <div style={{display: 'flex', justifyContent: 'center'}}>
-            <Window style={{ position: 'absolute', zIndex: 1, width: "35%", minWidth: "17.7rem" }}>
+            <Window style={{ position: 'absolute', zIndex: 1, width: "45%", minWidth: "19rem" }}>
                 <WindowHeader className="window-header">
                     <span>weather.exe</span>
                     <Button onClick={handleWeatherClose}>
@@ -82,11 +96,28 @@ const WeatherWindow = (props) => {
                                     <p>{currentWeatherData.main.humidity} % humidity</p>
                                 </div>
                             </div>
-                            <div> 
-                                <p></p>
-                            </div>
-                        </div>
-                            
+                        {forecastData && forecastIcons && (
+                            <Fieldset label="3 day outlook">
+                                <div style={{display: 'flex', justifyContent: 'space-between', alignContent: 'center', gap: '1rem'}}>
+                                    {forecastData.map((forecast, index) => {
+                                        return (
+                                        <ForecastWrapper>
+                                            <p style={{textDecoration: 'underline'}}>{forecast.day}</p>
+                                            <div style={{display: 'flex', justifyContent: 'center', margin: '0.5rem 0'}}>
+                                                <Image src={forecastIcons[index]} height={50} alt={forecast.description}/>
+                                            </div>
+                                            <div>
+                                                <p>{forecast.temp}</p>
+                                                <p>{forecast.weather}</p>
+                                            </div>
+                                            
+                                        </ForecastWrapper>
+                                        );
+                                    })}
+                                </div>
+                            </Fieldset>
+                        )}
+                        </div>  
                     )}
                 </WindowContent>
             </Window>
