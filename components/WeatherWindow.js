@@ -96,7 +96,7 @@ const WeatherWindow = (props) => {
                                 </div>
                             </div>
                         {forecastData && forecastIcons && (
-                            <Fieldset label="3 day outlook">
+                            <Fieldset label="outlook">
                                 <div style={{display: 'flex', justifyContent: 'space-between', alignContent: 'center', gap: '1rem'}}>
                                     {forecastData.map((forecast, index) => {
                                         return (
