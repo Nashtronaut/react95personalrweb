@@ -25,10 +25,10 @@ const About = () => {
                 <ul>
                     <li style={{margin: '0.5rem 0'}}>- 4.0 GPA</li>
                     <li style={{margin: '0.5rem 0'}}>- Dean&apos;s Honour Roll</li>
-                    <li style={{margin: '0.5rem 0'}}>- 8 month COOP (CGI Group)</li>
+                    <li style={{margin: '0.5rem 0'}}>- 8 month COOP <Anchor href="https://www.cgi.com/en">(CGI Group)</Anchor></li>
                     <li style={{margin: '0.5rem 0'}}>- Full stack role</li>
                     <li style={{margin: '0.5rem 0'}}>- Ran student tutoring Discord</li>
-                    <li style={{margin: '0.5rem 0'}}>- Linux lover</li>
+                    <li style={{margin: '0.5rem 0'}}>- Linux lover (arch btw)</li>
                     <li style={{margin: '0.5rem 0'}}>- Dog lover</li>
                     <li style={{margin: '0.5rem 0'}}>- Obsessive <Anchor onClick={() => setShowChessWindow(true)} style={{cursor: 'pointer'}} >chess player</Anchor></li>
                     {showChessWindow && (

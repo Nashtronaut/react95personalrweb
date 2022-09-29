@@ -39,6 +39,14 @@ const catalogue = [
                     {
                         id: 'grommet',
                         label: 'Grommet'
+                    },
+                    {
+                        id:'react-bootstrap',
+                        label: 'React Bootstrap',
+                    },
+                    {
+                        id:'react95',
+                        label: 'react95'
                     }
                 ]
             }
