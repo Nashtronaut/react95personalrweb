@@ -2,10 +2,10 @@ import styled from 'styled-components'
 import { useState } from 'react';
 import PopupWrapper from './helpers/wrappers/PopupWrapper'
 import Image from 'next/future/image';
-import cute from '../public/img/cute.png';
-import goofy from '../public/img/goofy.png';
-import handsome from '../public/img/handsome.png';
-import sleepy from '../public/img/sleepy.png';
+import cute from '../public/img/cute.webp';
+import goofy from '../public/img/goofy.webp';
+import handsome from '../public/img/handsome.webp';
+import sleepy from '../public/img/sleepy.webp';
 import {
   Window,
   WindowHeader,

@@ -1,5 +1,5 @@
 import Image from 'next/future/image';
-import avatar from '../public/img/me.png'
+import avatar from '../public/img/me.webp'
 import { 
     Avatar,
     Divider,
