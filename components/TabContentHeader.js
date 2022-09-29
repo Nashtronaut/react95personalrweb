@@ -20,7 +20,7 @@ const TabContentHeader = (props) => {
                 <Divider style={{margin: '0 1rem'}} orientation="vertical" size={50} />
                 <p style={{fontWeight: 'bold'}}>{header}</p>
             </div>
-            <Divider style={{margin: '1rem 0'}} /> 
+            <Divider style={{margin: '1rem 0'}} />
         </div>
     );
 };
