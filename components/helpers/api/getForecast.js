@@ -5,7 +5,7 @@ const END_POINT = `https://api.openweathermap.org/data/2.5/forecast?units=metric
 //TODO NEEDS COMPLETE REWORK. I DID NOT KNOW TO MULITPLY DT * 1000. LESSONS LEARNED
 
 const dayFilter = (date, hour) => {
-        const currentDay = new Date().getDate();
+        let currentDay = new Date().getDate();
         const hourTarget = 12;
         const dateTargets = [currentDay + 1, currentDay + 2, currentDay + 3];
 
