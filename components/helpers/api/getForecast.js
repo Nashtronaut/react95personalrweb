@@ -1,6 +1,6 @@
 const CITY = 'edmonton';
 const KEY = 'e2a054e1ca2e0748492fb9a1f5c5bf20';
-const END_POINT = `https://api.openweathermap.org/data/2.5/forecast?units=metric&cnt=28&q=${CITY}&appid=${KEY}`;
+const END_POINT = `https://api.openweathermap.org/data/2.5/forecast?units=metric&cnt=40&q=${CITY}&appid=${KEY}`;
 
 //TODO NEEDS COMPLETE REWORK. I DID NOT KNOW TO MULITPLY DT * 1000. LESSONS LEARNED
 
