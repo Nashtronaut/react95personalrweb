@@ -14,7 +14,7 @@ const TabContentHeader = (props) => {
     return(
         <div>
             <div style={{display: 'flex', alignItems: 'center'}}>
-                <Tooltip text='me.jpg' enterDelay={200} leaveDelay={500}>
+                <Tooltip text='this-is-blurry-for-style.jpg' enterDelay={200} leaveDelay={500}>
                     <Avatar size={90}><Image src={avatar} height={100} width={100} alt="me" /></Avatar>
                 </Tooltip>
                 <Divider style={{margin: '0 1rem'}} orientation="vertical" size={50} />
