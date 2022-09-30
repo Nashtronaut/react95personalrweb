@@ -4,15 +4,18 @@ const END_POINT = `https://api.openweathermap.org/data/2.5/forecast?units=metric
 
 //TODO NEEDS COMPLETE REWORK. I DID NOT KNOW TO MULITPLY DT * 1000. LESSONS LEARNED
 
-const dayFilter = (date, hour) => {
-        let currentDay = new Date().getDate();
+const addDays = (date, days) => {
+        let result = new Date(date)
+        result.setDate(result.getDate() + days)
+        return result;
+}
+
+const dayFilter = (date) => {
+        const currentDate = new Date();
         const hourTarget = 12;
-        const dateTargets = [currentDay + 1, currentDay + 2, currentDay + 3];
+        const dateTargets = [addDays(currentDate, 1).getDate(), addDays(currentDate, 2).getDate(), addDays(currentDate, 3).getDate()];
 
-        date = parseInt(date);
-        hour = parseInt(hour);
-
-        return dateTargets.includes(date) && hour === hourTarget;
+        return dateTargets.includes(date.getDate()) && date.getHours() === hourTarget;
 };
 
 const getForecast = () => {
@@ -22,30 +25,25 @@ const getForecast = () => {
         return fetch(END_POINT).then((res) => {
                 return res.json()
         }).then((data) => {
-                 let returnData = data.list.filter((instance) => {
-                        let date = instance.dt_txt.substring(8, 10);
-                        let hour = instance.dt_txt.substring(11, 13);
-                        
-                        return dayFilter(date, hour)
+
+                let returnData = data.list.filter((instance) => {
+                        let date = new Date(instance.dt * 1000);
+                        return dayFilter(date);
                 })
 
                 returnData = returnData.map((instance) => {
-                        let date = instance.dt_txt.substring(8, 10);
-                        let month = parseInt(instance.dt_txt.substring(5, 7)) - 1; // Subtract 1 for javascript datetime indexing.
-                        let year = instance.dt_txt.substring(0, 4);
 
-                        let dateObj = new Date(year, month, date);
-                        console.log(dateObj)
-                        let day = days[dateObj.getDay()];
+                        const date = new Date(instance.dt * 1000);
+                        let day = days[date.getDay()];
 
                         return {
                                 day: day.toLowerCase(),
                                 temp: instance.main.temp,
                                 weather: instance.weather[0].description,
-                                main : instance.weather[0].main // for icon identification
+                                main : instance.weather[0].main
                         }
                 })
-
+                
                 return returnData;
         });
 }
