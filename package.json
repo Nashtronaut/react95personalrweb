@@ -12,6 +12,7 @@
     "@react95/core": "^6.0.4",
     "@react95/icons": "^2.0.5",
     "chess-web-api": "^1.1.2",
+    "framer-motion": "^7.5.0",
     "next": "12.3.1",
     "next-fonts": "^1.5.1",
     "next-images": "^1.8.4",

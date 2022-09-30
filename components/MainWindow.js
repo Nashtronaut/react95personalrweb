@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import spinner from './helpers/spinnerStyles'
+import spinner from './helpers/spinnerStyles';
 import WindowWrapper from './helpers/wrappers/WindowWrapper';
 import About from './About';
 import Skills from './Skills';

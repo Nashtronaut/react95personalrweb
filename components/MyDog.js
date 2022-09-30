@@ -53,7 +53,7 @@ const MyDog = ({hideDog}) => {
             </WindowHeader>
         
             <Toolbar style={{display: 'flex', justifyContent: 'center'}}>
-                <List inline style={{justifyContent: 'center', width: '100%', gap: '0.3rem', padding: '0.3rem 1rem', boxShadow: 'none'}}>
+                <List inline style={{justifyContent: 'center', width: '100%', gap: '0.2rem', padding: '0.3rem 1rem', boxShadow: 'none'}}>
                     <ListItem style={{padding: 0, fontWeight: 'bold'}} value={0} onClick={handleChange} size='sm'>
                         cute
                     </ListItem>
