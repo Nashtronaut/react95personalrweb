@@ -18,6 +18,8 @@ import {
   Hourglass
 } from 'react95';
 
+//TODO Modules also do no cooperate here. 
+
 const tabStyle = {
   width: '20%',
   maxWidth: '7.5rem',
