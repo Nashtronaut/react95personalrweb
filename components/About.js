@@ -1,8 +1,11 @@
+import styles from '../styles/About.module.css';
 import { useState } from 'react';
 import WeatherWindow from './WeatherWindow';
 import ChessStatWindow from './ChessStatWindow';
 import TabContentHeader from './TabContentHeader';
 import { Fieldset, Anchor } from 'react95';
+
+//TODO fix the list. Add array of elements to map through instead of this stupidness. 
 
 const About = () => {
 
@@ -12,33 +15,33 @@ const About = () => {
     return(
         <div>
             <TabContentHeader header="Nash Boisvert!" />
-            <Fieldset style={{fontWeight: 'bold', padding: '0.5rem 0.8rem', margin: '0.8rem 0'}} label="Location">
-                Edmonton, Alberta, Canada - <Anchor onClick={() => setShowWeather(true)} style={{cursor: 'pointer'}}>[weather?]</Anchor>
+            <Fieldset className={styles.fieldSet} label="Location">
+                Edmonton, Alberta, Canada - <Anchor className={styles.pointer} onClick={() => setShowWeather(true)}>[weather?]</Anchor>
                 {showWeather && (
                 <WeatherWindow handleWeatherClose={() => setShowWeather(false)} />
             )}
             </Fieldset>
-            <Fieldset style={{fontWeight: 'bold', padding: '0.5rem 0.8rem', margin: '0.8rem 0'}} label="Education">
+            <Fieldset className={styles.fieldSet} label="Education">
                 NAIT - Computer Software Development
             </Fieldset>
-            <Fieldset style={{fontWeight: 'bold', background: 'white', padding: '1rem 0.8rem 0.8rem', margin: '0.8rem 0'}} label="About">
+            <Fieldset className={styles.listFieldSet} label="About">
                 <ul>
-                    <li style={{margin: '0.5rem 0'}}>- 4.0 GPA</li>
-                    <li style={{margin: '0.5rem 0'}}>- Dean&apos;s Honour Roll</li>
-                    <li style={{margin: '0.5rem 0'}}>- 8 month COOP <Anchor href="https://www.cgi.com/en">(CGI Group)</Anchor></li>
-                    <li style={{margin: '0.5rem 0'}}>- Full stack role</li>
-                    <li style={{margin: '0.5rem 0'}}>- Ran student tutoring Discord</li>
-                    <li style={{margin: '0.5rem 0'}}>- Linux lover (arch btw)</li>
-                    <li style={{margin: '0.5rem 0'}}>- Dog lover</li>
-                    <li style={{margin: '0.5rem 0'}}>- Obsessive <Anchor onClick={() => setShowChessWindow(true)} style={{cursor: 'pointer'}} >chess player</Anchor></li>
+                    <li className={styles.li}>- 4.0 GPA</li>
+                    <li className={styles.li}>- Dean&apos;s Honour Roll</li>
+                    <li className={styles.li}>- 8 month COOP <Anchor href="https://www.cgi.com/en">(CGI Group)</Anchor></li>
+                    <li className={styles.li}>- Full stack role</li>
+                    <li className={styles.li}>- Ran student tutoring Discord</li>
+                    <li className={styles.li}>- Linux lover (arch btw)</li>
+                    <li className={styles.li}>- Dog lover</li>
+                    <li className={styles.li}>- Obsessive <Anchor className={styles.pointer} onClick={() => setShowChessWindow(true)}>chess player</Anchor></li>
                     {showChessWindow && (
                         <ChessStatWindow handleChessClose={() => setShowChessWindow(false)}/>
                     )}
-                    <li style={{margin: '0.5rem 0'}}>- V 1.0 released in 1996</li>
-                    <li style={{margin: '0.5rem 0'}}>- Tinkering since 2004</li>
-                    <li style={{margin: '0.5rem 0'}}>- Poor since 2004</li>
-                    <li style={{margin: '0.5rem 0'}}>- Open-source contributor</li>
-                    <li style={{margin: '0.5rem 0'}}>- Seeking full time employment</li>
+                    <li className={styles.li}>- V 1.0 released in 1996</li>
+                    <li className={styles.li}>- Tinkering since 2004</li>
+                    <li className={styles.li}>- Poor since 2004</li>
+                    <li className={styles.li}>- Open-source contributor</li>
+                    <li className={styles.li}>- Seeking full time employment</li>
                 </ul>
             </Fieldset>
         </div>

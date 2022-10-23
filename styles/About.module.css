@@ -1,0 +1,20 @@
+.fieldSet {
+    font-weight: bold;
+    padding: 0.5rem 0.8rem;
+    margin: 0.8rem 0;
+}
+
+.listFieldSet {
+    font-weight: bold;
+    background: white;
+    padding: 1rem 0.8rem 0.8rem; 
+    margin: 0.8rem 0;
+}
+
+.li {
+    margin: 0.5rem 0;
+}
+
+.pointer {
+    cursor: pointer;
+}

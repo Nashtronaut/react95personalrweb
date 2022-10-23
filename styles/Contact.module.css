@@ -1,0 +1,28 @@
+.margin {
+    margin: 1rem 0;
+}
+
+.formTextFieldContainer {
+    display: flex; 
+    flex-direction: column; 
+    gap: 0.5rem;
+}
+
+.feedBack {
+    display: flex; 
+    justify-content: space-between; 
+    align-content: center;
+}
+
+.feedBackText {
+    text-align: center; 
+    margin: 0.5rem 0;
+    font-weight: bold;
+}
+
+.btnContainer {
+    display: flex; 
+    gap: 0.3rem; 
+    justify-content: flex-end;
+    margin-top: 2rem;
+}

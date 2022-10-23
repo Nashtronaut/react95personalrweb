@@ -1,0 +1,19 @@
+.positioning {
+    display: block;
+    margin-top: 1.5rem;
+    width: calc(100% - 1rem);
+}
+
+.builtWithText {
+    display: block; 
+    margin: 0 auto; 
+    text-align: center; 
+}
+
+.builtColor {
+    color: #848584;
+}
+
+.pointer {
+    cursor: pointer;
+}
